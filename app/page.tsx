@@ -1,3 +1,5 @@
+"use client";
+
 import { useEffect, useState } from 'react';
 
 export default function ÇelikhanKuyumculuk() {
@@ -6,7 +8,7 @@ export default function ÇelikhanKuyumculuk() {
     { name: 'Çeyrek Altın', buy: '6.920 ₺', sell: '7.080 ₺' },
     { name: 'Yarım Altın', buy: '13.840 ₺', sell: '14.160 ₺' },
     { name: 'Tam Altın', buy: '27.580 ₺', sell: '28.220 ₺' },
-    { name: 'Cumhuriyet Altını', buy: '28.400 ₺', sell: '29.050 ₺' },
+    { name: 'Cumhuriyet Altını', buy: '28.400 ₺ ₺', sell: '29.050 ₺' },
     { name: '22 Ayar Bilezik', buy: '3.860 ₺', sell: '3.980 ₺' },
     { name: 'Has Altın', buy: '4.250 ₺', sell: '4.310 ₺' },
   ]);
