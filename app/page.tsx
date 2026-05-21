@@ -8,7 +8,7 @@ export default function ÇelikhanKuyumculuk() {
     { name: 'Çeyrek Altın', buy: '6.920 ₺', sell: '7.080 ₺' },
     { name: 'Yarım Altın', buy: '13.840 ₺', sell: '14.160 ₺' },
     { name: 'Tam Altın', buy: '27.580 ₺', sell: '28.220 ₺' },
-    { name: 'Cumhuriyet Altını', buy: '28.400 ₺ ₺', sell: '29.050 ₺' },
+    { name: 'Cumhuriyet Altını', buy: '28.400 ₺', sell: '29.050 ₺' },
     { name: '22 Ayar Bilezik', buy: '3.860 ₺', sell: '3.980 ₺' },
     { name: 'Has Altın', buy: '4.250 ₺', sell: '4.310 ₺' },
   ]);
@@ -72,7 +72,7 @@ export default function ÇelikhanKuyumculuk() {
       <section className="relative z-10 py-16 md:py-24 px-6 text-center">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-5xl md:text-7xl font-black leading-tight mb-6">
-            Güncel Altın <span className="block text-yellow-400">Fiyatları</span>
+            Çelikhan <span className="block text-yellow-400">Kuyumculuk</span>
           </h2>
           <div className="flex items-center justify-center gap-3 mb-5">
             <div className="w-3 h-3 rounded-full bg-green-400 animate-ping"></div>
