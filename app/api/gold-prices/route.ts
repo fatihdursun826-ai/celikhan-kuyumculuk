@@ -1,33 +1,31 @@
-import { NextResponse } from 'next/server';
-import * as cheerio from 'cheerio';
+"use client";
 
-export const revalidate = 0;
+export default function FiyatEkrani() {
+  // Fiyatları buraya manuel yazın, istediğiniz zaman güncelleyebilirsiniz
+  const prices = [
+    { name: "Gram Altın", buy: "2450", sell: "2480" },
+    { name: "Çeyrek Altın", buy: "4000", sell: "4100" },
+    { name: "Yarım Altın", buy: "8000", sell: "8200" }
+  ];
 
-export async function GET() {
-  try {
-    const response = await fetch('http://malatyaaltinpiyasasi.com/', {
-      headers: {
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
-      }
-    });
-    
-    const html = await response.text();
-    const $ = cheerio.load(html);
-    const prices: any[] = [];
-
-    // Sitenin tablo yapısına göre veri çekme
-    $('table tr').each((i, el) => {
-      const name = $(el).find('td').eq(0).text().trim();
-      const buy = $(el).find('td').eq(1).text().trim();
-      const sell = $(el).find('td').eq(2).text().trim();
-      
-      if (name && buy && sell) {
-        prices.push({ name, buy, sell });
-      }
-    });
-
-    return NextResponse.json(prices);
-  } catch (error) {
-    return NextResponse.json({ error: 'Veri çekilemedi' }, { status: 500 });
-  }
+  return (
+    <div className="bg-black text-white min-h-screen p-6 font-sans">
+      <h1 className="text-3xl font-bold text-center text-yellow-500 mb-8">Çelikhan Kuyumculuk</h1>
+      <div className="max-w-2xl mx-auto bg-gray-900 p-6 rounded-lg shadow-lg">
+        {prices.map((p, i) => (
+          <div key={i} className="flex justify-between py-3 border-b border-gray-700">
+            <span className="font-semibold text-lg">{p.name}</span>
+            <div className="flex gap-6">
+              <span className="text-green-400">Alış: {p.buy} TL</span>
+              <span className="text-yellow-400 font-bold">Satış: {p.sell} TL</span>
+            </div>
+          </div>
+        ))}
+      </div>
+      <div className="text-center mt-10 text-gray-500 text-sm">
+        <p>İletişim: 0530 223 94 91 - 0538 687 16 47</p>
+        <p>Adres: Küçük Hüseyinbey Mah. Sivas Cad. Girişi, Yeni Kuyumcular Çarşısı No: 87, Malatya</p>
+      </div>
+    </div>
+  );
 }
