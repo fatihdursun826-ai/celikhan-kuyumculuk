@@ -1,22 +1,37 @@
 "use client";
-
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 export default function FiyatEkrani() {
-  return (
-    <div className="w-full bg-black text-white font-sans p-6">
-      <h1 className="text-4xl font-bold text-center mb-10 text-yellow-500">Çelikhan Kuyumculuk</h1>
-      
-      {/* Fiyat Bilgilendirme */}
-      <div className="max-w-4xl mx-auto bg-gray-900 p-6 rounded-lg shadow-lg mb-10 text-center">
-        <p className="text-xl text-yellow-400">Canlı fiyatlar şu an teknik güncelleme aşamasındadır.</p>
-        <p className="mt-2 text-gray-400">Lütfen güncel fiyatlar için mağazamızı ziyaret ediniz.</p>
-      </div>
+  const [prices, setPrices] = useState<any[]>([]);
 
-      {/* İletişim ve Adres - BU KISIM KESİN GÖRÜNECEK */}
-      <div className="max-w-4xl mx-auto text-center space-y-4 border-t border-gray-800 pt-6">
-        <p><strong>İletişim:</strong> 0530 223 94 91 - 0538 687 16 47</p>
-        <p><strong>Adres:</strong> Küçük Hüseyinbey Mah. Sivas Cad. Girişi, Yeni Kuyumcular Çarşısı No: 87, Malatya</p>
+  useEffect(() => {
+    fetch('/api/gold-prices')
+      .then(res => res.json())
+      .then(data => setPrices(data))
+      .catch(err => console.error(err));
+  }, []);
+
+  return (
+    <div className="bg-black text-white min-h-screen p-6 font-sans">
+      <h1 className="text-3xl font-bold text-center text-yellow-500 mb-8">Çelikhan Kuyumculuk</h1>
+      <div className="max-w-2xl mx-auto bg-gray-900 p-6 rounded-lg shadow-lg">
+        {prices.length > 0 ? (
+          prices.map((p, i) => (
+            <div key={i} className="flex justify-between py-3 border-b border-gray-700">
+              <span className="font-semibold">{p.name}</span>
+              <div className="flex gap-4">
+                <span className="text-green-400">Alış: {p.buy}</span>
+                <span className="text-yellow-400">Satış: {p.sell}</span>
+              </div>
+            </div>
+          ))
+        ) : (
+          <p className="text-center text-gray-400">Fiyatlar güncelleniyor...</p>
+        )}
+      </div>
+      <div className="text-center mt-10 text-gray-500">
+        <p>İletişim: 0530 223 94 91 - 0538 687 16 47</p>
+        <p>Adres: Küçük Hüseyinbey Mah. Sivas Cad. Girişi, Yeni Kuyumcular Çarşısı No: 87, Malatya</p>
       </div>
     </div>
   );
