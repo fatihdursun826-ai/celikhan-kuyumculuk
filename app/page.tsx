@@ -34,9 +34,9 @@ export default function FiyatEkrani() {
 
   return (
     <div className="w-full bg-black text-white font-sans">
-      <section className="relative z-10 py-16 md:py-24 px-6 text-center">
+      {/* BAŞLIK ALANI */}
+      <section className="relative z-10 pt-16 pb-10 px-6 text-center">
         <div className="max-w-6xl mx-auto">
-          {/* İŞTE DEĞİŞTİRMEK İSTEDİĞİMİZ BÜYÜK BAŞLIK BURASI */}
           <h2 className="text-5xl md:text-7xl font-black leading-tight mb-6 tracking-wide">
             Çelikhan <span className="block text-yellow-400 mt-2">Kuyumculuk</span>
           </h2>
@@ -56,7 +56,7 @@ export default function FiyatEkrani() {
       </section>
 
       {/* ALTIN FİYATLARI TABLOSU */}
-      <section className="relative z-10 px-6 pb-20">
+      <section className="relative z-10 px-6 pb-12">
         <div className="max-w-6xl mx-auto bg-white/5 backdrop-blur-xl border border-yellow-500/20 rounded-3xl overflow-hidden shadow-2xl shadow-yellow-500/10">
           <div className="grid grid-cols-3 bg-gradient-to-r from-yellow-300 via-yellow-500 to-yellow-700 text-black font-black text-lg p-5 uppercase tracking-wider">
             <div>Altın Türü</div>
@@ -73,6 +73,41 @@ export default function FiyatEkrani() {
               <div className="text-center text-yellow-300 font-bold">{item.sell}</div>
             </div>
           ))}
+        </div>
+      </section>
+
+      {/* YENİ EKLENEN İLETİŞİM, ADRES VE İSİMLER ALANI */}
+      <section className="relative z-10 px-6 pb-20">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+          
+          {/* İSİMLER KARTI */}
+          <div className="bg-white/5 backdrop-blur-md border border-yellow-500/10 rounded-2xl p-6 text-center hover:border-yellow-500/30 transition-all">
+            <h3 className="text-yellow-400 font-bold text-xl mb-4 uppercase tracking-wider">Mağaza Sorumluları</h3>
+            <p className="text-gray-200 text-lg font-medium mb-2">Mehmet Dursun</p>
+            <p className="text-gray-200 text-lg font-medium">Fatih Dursun</p>
+          </div>
+
+          {/* TELEFON KARTI */}
+          <div className="bg-white/5 backdrop-blur-md border border-yellow-500/10 rounded-2xl p-6 text-center hover:border-yellow-500/30 transition-all">
+            <h3 className="text-yellow-400 font-bold text-xl mb-4 uppercase tracking-wider">İletişim Numaraları</h3>
+            <p className="text-gray-200 text-lg font-semibold mb-2">
+              <a href="tel:05302235044" className="hover:text-yellow-400 transition-colors">0530 223 50 44</a>
+            </p>
+            <p className="text-gray-200 text-lg font-semibold">
+              <a href="tel:05386872544" className="hover:text-yellow-400 transition-colors">0538 687 25 44</a>
+            </p>
+          </div>
+
+          {/* ADRES KARTI */}
+          <div className="bg-white/5 backdrop-blur-md border border-yellow-500/10 rounded-2xl p-6 text-center hover:border-yellow-500/30 transition-all">
+            <h3 className="text-yellow-400 font-bold text-xl mb-4 uppercase tracking-wider">Mağaza Adresi</h3>
+            <p className="text-gray-200 leading-relaxed">
+              Dabakhane Mahallesi, Halep Caddesi, <br />
+              No: 18 (Kuyumcular Çarşısı) <br />
+              <span className="text-yellow-500 font-semibold">Battalgazi / MALATYA</span>
+            </p>
+          </div>
+
         </div>
       </section>
     </div>
